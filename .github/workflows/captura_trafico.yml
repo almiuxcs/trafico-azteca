@@ -13,8 +13,10 @@ on:
 jobs:
   captura:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # <-- agrega esta línea
     permissions:
-      contents: write           # necesario para hacer git push
+      contents: write
 
     steps:
       - name: Checkout repo
