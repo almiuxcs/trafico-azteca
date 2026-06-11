@@ -1,0 +1,42 @@
+name: Captura tráfico Azteca
+
+on:
+  schedule:
+    # Cada 15 min de 16:45 a 23:00 UTC (= 10:45–17:00 CDMX invierno)
+    # GitHub Actions no soporta minutos :45, se aproxima con 4 entradas
+    - cron: '45 16-22 * * *'   # xx:45 de cada hora
+    - cron: '0  17-23 * * *'   # xx:00
+    - cron: '15 17-22 * * *'   # xx:15
+    - cron: '30 17-22 * * *'   # xx:30
+  workflow_dispatch:            # permite ejecutar manualmente
+
+jobs:
+  captura:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write           # necesario para hacer git push
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar captura
+        env:
+          ROUTES_API_KEY: ${{ secrets.ROUTES_API_KEY }}
+        run: python captura_trafico.py
+
+      - name: Commit y push de datos
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/trafico_azteca.csv
+          git diff --staged --quiet || git commit -m "datos: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
