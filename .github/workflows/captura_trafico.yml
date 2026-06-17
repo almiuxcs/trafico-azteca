@@ -2,15 +2,6 @@ name: Captura tráfico Azteca
 
 on:
   schedule:
-    - cron: '45 16 * * *'   # 10:45 CDMX
-    - cron: '0  17 * * *'   # 11:00 CDMX
-    - cron: '15 17 * * *'   # 11:15 CDMX
-    - cron: '30 17 * * *'   # 11:30 CDMX
-    - cron: '45 17 * * *'   # 11:45 CDMX
-    - cron: '0  18 * * *'   # 12:00 CDMX
-    - cron: '15 18 * * *'   # 12:15 CDMX
-    - cron: '30 18 * * *'   # 12:30 CDMX
-    - cron: '45 18 * * *'   # 12:45 CDMX
     - cron: '0  19 * * *'   # 13:00 CDMX
     - cron: '15 19 * * *'   # 13:15 CDMX
     - cron: '30 19 * * *'   # 13:30 CDMX
@@ -28,6 +19,33 @@ on:
     - cron: '30 22 * * *'   # 16:30 CDMX
     - cron: '45 22 * * *'   # 16:45 CDMX
     - cron: '0  23 * * *'   # 17:00 CDMX
+    - cron: '15 23 * * *'   # 17:15 CDMX
+    - cron: '30 23 * * *'   # 17:30 CDMX
+    - cron: '45 23 * * *'   # 17:45 CDMX
+    - cron: '0  0  * * *'   # 18:00 CDMX
+    - cron: '15 0  * * *'   # 18:15 CDMX
+    - cron: '30 0  * * *'   # 18:30 CDMX
+    - cron: '45 0  * * *'   # 18:45 CDMX
+    - cron: '0  1  * * *'   # 19:00 CDMX
+    - cron: '15 1  * * *'   # 19:15 CDMX
+    - cron: '30 1  * * *'   # 19:30 CDMX
+    - cron: '45 1  * * *'   # 19:45 CDMX
+    - cron: '0  2  * * *'   # 20:00 CDMX
+    - cron: '15 2  * * *'   # 20:15 CDMX
+    - cron: '30 2  * * *'   # 20:30 CDMX
+    - cron: '45 2  * * *'   # 20:45 CDMX
+    - cron: '0  3  * * *'   # 21:00 CDMX
+    - cron: '15 3  * * *'   # 21:15 CDMX
+    - cron: '30 3  * * *'   # 21:30 CDMX
+    - cron: '45 3  * * *'   # 21:45 CDMX
+    - cron: '0  4  * * *'   # 22:00 CDMX
+    - cron: '15 4  * * *'   # 22:15 CDMX
+    - cron: '30 4  * * *'   # 22:30 CDMX
+    - cron: '45 4  * * *'   # 22:45 CDMX
+    - cron: '0  5  * * *'   # 23:00 CDMX
+    - cron: '15 5  * * *'   # 23:15 CDMX
+    - cron: '30 5  * * *'   # 23:30 CDMX
+    - cron: '45 5  * * *'   # 23:45 CDMX
   workflow_dispatch:
 
 jobs:
